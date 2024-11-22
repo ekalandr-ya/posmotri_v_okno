@@ -15,7 +15,6 @@ html {
 }
 
 .page {
-  position: absolute;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -192,7 +191,6 @@ ol {
 }
 
 .visually-hidden {
-  position: absolute;
   inline-size: 1px;
   block-size: 1px;
   overflow: hidden;
