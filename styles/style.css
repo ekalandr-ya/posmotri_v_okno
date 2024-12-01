@@ -4,12 +4,6 @@
   box-sizing: border-box;
 }
 
-.header {
-  color: white;
-  display: grid;
-  grid-template-columns: 1fr min-content 1fr;
-}
-
 html {
   block-size: 100%;
 }
@@ -55,6 +49,7 @@ ol {
 }
 
 .content {
+  margin-top: 23px;
   gap: 30px;
   display: flex;
   flex-direction: row;
@@ -62,7 +57,6 @@ ol {
   justify-content: space-around;
   align-items: flex-end;
   width: 1140px;
-  height: 534px;
 }
 
 .content__accent {
@@ -71,17 +65,21 @@ ol {
 
 .result {
   position: relative;
+  margin-left: 16px;
 }
 
-.result_video-container {
+video {
   position: relative;
-  object-fit: contain;
+  height: 386px;
+  width: 711px;
+  object-fit: fill;
 }
 
 .search-form {
+  position: relative;
   display: flex;
+  align-content: stretch;
   justify-content: space-between;
-  align-items: flex-end;
 }
 
 .search-form__fieldset-title {
@@ -96,32 +94,22 @@ ol {
   width: fit-content;
 }
 
-.search-form__checkbox-list {
-  display: inline;
-}
-
 .search-form__textfield {
   appearance: none;
   font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   font-weight: 400;
-  background-color: #1b1919;
+  background-color: transparent;
   color: white;
   border: 0;
   border-bottom: 1px solid white;
-}
-
-.search-form__textfield:active {
-  border: 1px solid white;
-}
-
-.search-form__textfield:hover {
-  border: 0;
-  border-bottom: 1px solid white;
   border-top: 1px solid white;
+  min-width: 225px;
+  position: relative;
+  top: -10px;
 }
 
-.search-form__textfield:has(:focus-visible) {
+.search-form__label:has(:focus-visible) {
   border: 1px solid white;
   border-bottom: 3px double white;
   border-top: 3px double white;
@@ -139,8 +127,8 @@ ol {
   color: white;
 }
 
-.content__list-item:not(:last-child) {
-  margin-top: 30px;
+.content__list-item:not(:last-child, :first-child) {
+  margin-top: 33px;
 }
 
 .content__details {
@@ -149,6 +137,7 @@ ol {
   height: 100%;
   flex-wrap: wrap;
   align-content: space-between;
+  min-height: 534px;
 }
 
 .content__video-card {
@@ -159,16 +148,15 @@ ol {
   justify-content: space-between;
 }
 
-.content__video-card:active {
+.content__video-card:active, .search-form__submit-button:active {
   background-color: #545050;
 }
 
-.content__video-card:hover {
+.content__video-card:hover, .search-form__label:hover .search-form__label-text, .search-form__submit-button:hover {
   text-decoration: underline;
 }
 
-
-.content__video-card:has(:focus-visible) {
+.content__video-card:has(:focus-visible), .search-form__submit-button:has(:focus-visible), .search-form__textfield:active {
   border: 1px solid white;
 }
 
@@ -183,6 +171,10 @@ ol {
   text-transform: uppercase;
   font-size: 30px;
   cursor: pointer;
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+  overflow: hidden;
+  max-height: 35px;
 }
 
 .content__card-link {
@@ -203,6 +195,10 @@ fieldset {
   border: none;
 }
 
+.search-form__fieldset {
+  max-height: 54px;
+}
+
 .search-form__pseudo-checkbox {
   display: flex;
   justify-content: center;
@@ -212,6 +208,7 @@ fieldset {
   height: 19px;
   margin-top: 2px;
   margin-right: 5px;
+  margin-left: 0px;
 }
 
 .search-form__pseudo-checkbox::before {
@@ -227,25 +224,20 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::before {
   height: 15px;
 }
 
-.search-form__label:hover {
-  text-decoration: underline;
-}
-
-.search-form__label:has(:focus-visible) {
-  border: 1px solid white;
-}
-
 .search-form__checkbox-list {
   display: inline-flex;
-  width: 212px;
+  width: 220px;
   justify-content: space-between;
+  position: relative;
+  right: 5px;
+  top: -6px;
 }
 
 .button {
   font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   font-weight: bold;
-  background-color: #1b1919;
+  background-color: transparent;
   color: white;
   border: 1px solid #fff;
 }
@@ -253,18 +245,8 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::before {
 .search-form__submit-button {
   width: 194px;
   height: 34px;
-}
-
-.search-form__submit-button:active {
-  background-color: #545050;
-}
-
-.search-form__submit-button:hover {
-  text-decoration: underline;
-}
-
-.search-form__submit-button:has(:focus-visible) {
-  border: 3px double white;
+  position: relative;
+  top: 20px;
 }
 
 .more-button {
