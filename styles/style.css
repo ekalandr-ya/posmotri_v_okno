@@ -49,11 +49,10 @@ ol {
 }
 
 .content {
-  margin-top: 23px;
   gap: 30px;
   display: flex;
   flex-direction: row;
-	flex-wrap: nowrap;
+  flex-wrap: nowrap;
   justify-content: space-around;
   align-items: flex-end;
   width: 1140px;
@@ -68,30 +67,36 @@ ol {
   margin-left: 16px;
 }
 
+.result__video-container {
+  padding-bottom: 5px;
+}
+
 video {
   position: relative;
   height: 386px;
   width: 711px;
-  object-fit: fill;
+  object-fit: cover;
 }
 
 .search-form {
   position: relative;
   display: flex;
-  align-content: stretch;
   justify-content: space-between;
+  max-height: fit-content;
 }
 
 .search-form__fieldset-title {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   font-weight: 400;
+  margin-bottom: 5px;
 }
 
 .search-form__label {
   display: inline-flex;
   justify-content: space-between;
   width: fit-content;
+  padding-left: 2px;
 }
 
 .search-form__textfield {
@@ -105,20 +110,17 @@ video {
   border-bottom: 1px solid white;
   border-top: 1px solid white;
   min-width: 225px;
-  position: relative;
-  top: -10px;
 }
 
 .search-form__label:has(:focus-visible) {
+  outline: none;
   border: 1px solid white;
-  border-bottom: 3px double white;
-  border-top: 3px double white;
 }
 
 .content__list {
   position: relative;
   color: white;
-  overflow: auto;
+  overflow-y: auto;
   width: 399px;
   height: 298px;
 }
@@ -129,6 +131,7 @@ video {
 
 .content__list-item:not(:last-child, :first-child) {
   margin-top: 33px;
+  /* у меня не схлапываются карточки, не поняла этот момент :( */
 }
 
 .content__details {
@@ -138,6 +141,7 @@ video {
   flex-wrap: wrap;
   align-content: space-between;
   min-height: 534px;
+  margin-top: 25px;
 }
 
 .content__video-card {
@@ -148,15 +152,16 @@ video {
   justify-content: space-between;
 }
 
-.content__video-card:active, .search-form__submit-button:active {
+.search-form__submit-button:active, .content__card-link:active {
   background-color: #545050;
 }
 
-.content__video-card:hover, .search-form__label:hover .search-form__label-text, .search-form__submit-button:hover {
+.content__card-link:hover, .search-form__label:hover .search-form__label-text, .search-form__submit-button:hover {
   text-decoration: underline;
 }
 
-.content__video-card:has(:focus-visible), .search-form__submit-button:has(:focus-visible), .search-form__textfield:active {
+.content__card-link:focus-visible, .search-form__submit-button:focus-visible, .search-form__textfield:active {
+  outline: none;
   border: 1px solid white;
 }
 
@@ -174,7 +179,7 @@ video {
   text-overflow: ellipsis; 
   white-space: nowrap; 
   overflow: hidden;
-  max-height: 35px;
+  max-width: 200px;
 }
 
 .content__card-link {
@@ -191,12 +196,19 @@ video {
   white-space: nowrap;
 }
 
+input.search-form__checkbox.visually-hidden {
+  margin-left: -5px;
+}
+
 fieldset {
   border: none;
 }
 
-.search-form__fieldset {
-  max-height: 54px;
+fieldset.search-form__fieldset {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 3px;
 }
 
 .search-form__pseudo-checkbox {
@@ -226,11 +238,8 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::before {
 
 .search-form__checkbox-list {
   display: inline-flex;
-  width: 220px;
+  width: 210px;
   justify-content: space-between;
-  position: relative;
-  right: 5px;
-  top: -6px;
 }
 
 .button {
@@ -245,8 +254,7 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::before {
 .search-form__submit-button {
   width: 194px;
   height: 34px;
-  position: relative;
-  top: 20px;
+  margin-top: 25px;
 }
 
 .more-button {
@@ -254,3 +262,4 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox::before {
   width: 399px;
   height: 34px;
 }
+
