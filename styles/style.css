@@ -121,6 +121,7 @@ video {
   position: relative;
   color: white;
   overflow-y: auto;
+  overflow-x: hidden;
   width: 399px;
   height: 298px;
 }
@@ -129,9 +130,8 @@ video {
   color: white;
 }
 
-.content__list-item:not(:last-child, :first-child) {
+.content__list-item:not(:first-child) {
   margin-top: 33px;
-  /* у меня не схлапываются карточки, не поняла этот момент :( */
 }
 
 .content__details {
@@ -197,6 +197,7 @@ video {
 }
 
 input.search-form__checkbox.visually-hidden {
+  outline: none;
   margin-left: -5px;
 }
 
@@ -230,6 +231,7 @@ fieldset.search-form__fieldset {
 }
 
 input[type="checkbox"]:checked + .search-form__pseudo-checkbox::before {
+  outline: none;
   content: "";
   background-color: #fff;
   width: 15px;
